@@ -13,3 +13,26 @@ Error: no such rectangle found
 Error: no such rectangle found
 Error: no such rectangle found
 Error: no such rectangle found
+ReferenceError: id is not defined
+ReferenceError: id is not defined
+ReferenceError: id is not defined
+Error: multiply rectangles with the same id found
+Error: multiply rectangles with the same id found
+Error: multiply rectangles with the same id found
+Error: no such rectangle found
+Error: no such rectangle found
+Error: failed to load rectangle
+ReferenceError: SuccessResponse is not defined
+ReferenceError: SuccessResponse is not defined
+ReferenceError: SuccessResponse is not defined
+Error: failed to load rectangle
+Error: failed to load rectangle
+ReferenceError: SuccessResponse is not defined
+ReferenceError: SuccessResponse is not defined
+ReferenceError: SuccessResponse is not defined
+ReferenceError: SuccessResponse is not defined
+TypeError: SuccessResponse is not a constructor
+TypeError: SuccessResponse is not a constructor
+Error: failed to load rectangle
+Error: failed to load rectangle
+Error: failed to load rectangle

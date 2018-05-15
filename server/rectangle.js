@@ -1,5 +1,7 @@
 var rectangleRouter = require('express').Router();
 
+var Response = require('./classes').Response;
+
 class Rectangle {
     constructor(id, height, width) {
         this.id = id;
@@ -28,11 +30,11 @@ var middleware = function (req, res, next) {
 rectangleRouter.param('id', function (req, res, next, id) {
 
     //var obj = _.find(rectangles,function(obj) { return obj.id == id;});
-    var obj = rectangles.filter(x => x.id == id);
+    var obj = rectangles.find(x => x.id == id);
     //var obj = rectangles.find(x => x.id == id);
 
     if (obj) {
-        console.log(obj);
+        //console.log(obj);
         req.rectangle = obj;
         next();
     } else {
@@ -47,8 +49,31 @@ rectangleRouter.get('/:id', (req, res, next) => {
     var object = req.rectangle;
     res.send(object);
 })
+.delete('/:id', (req, res, next) => {
 
-rectangleRouter
+    var object = req.rectangle;
+    //var obj = rectangles.filter(x => x.id == id);
+
+    if (object) {
+        console.log(object);
+        var index = rectangles.indexOf(object);
+        console.log(index);
+        if (index !== -1) {
+            rectangles.splice(index,1);
+            var resp = new Response(null,'Rectangle Removed');
+            res.send(resp);
+        }
+        else{
+            next(new Error('multiply rectangles with the same id found'));    
+        }
+    }
+
+    else {
+        next(new Error('no such rectangle found'));
+
+    }
+    
+});
 
 rectangleRouter.get('/', (req, res, next) => {
 
@@ -61,7 +86,9 @@ rectangleRouter.get('/', (req, res, next) => {
     rectangles.push(newRectangle);
     //newRectangle.addon = rectangle.addon;
     res.send(newRectangle);
-}).put('/', (req, res, next) => {
+})
+
+.put('/', (req, res, next) => {
 
     var obj = rectangles.filter(x => x.id == req.body.id);
 
