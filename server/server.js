@@ -1,12 +1,22 @@
-var Response = require('./classes').Response;
-
 var express = require('express');
-var parser = require('body-parser');
-var path = require('path');
+
+var api = require('./api/api');
+var err = require('./middleware/err');
+var Response = require('./api/classes');
 
 var app = express();
 
+require('./middleware/appMiddleware')(app);
 
+app.use('/api', api);
+app.use(err());
+
+module.exports = app;
+
+/*
+
+var parser = require('body-parser');
+var path = require('path');
 //var helloRouter = require('./hello');
 
 
@@ -19,6 +29,7 @@ app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
 
 
+var Response = require('./classes').Response;
 
 var rectangleRouter = require('./rectangle');
 app.use('/rectangle', rectangleRouter);
@@ -59,19 +70,7 @@ app.get('/file', (req, res) => {
     })
 });
 
-app.use(function (err, req, res, next) {
 
-    if (err) {
-        res.status(500).send(new Response(err.message, null));
-        console.log(err);
-        fs.appendFile('errLogs.txt', err + '\r\n', function (err) {
-            if (err) {
-                console.log('error writing to file');
-            }
-        });
-    }
-
-});
 
 
 var port = 8000;
@@ -80,8 +79,5 @@ app.listen(port, function () {
     console.log(`App listening on port ${port}`);
 });
 
-
-
-module.exports = app;
-
+*/
 

@@ -1,0 +1,110 @@
+var rectangleRouter = require('express').Router();
+
+var logger = require('../../util/logger');
+
+
+
+const Response = require('../classes');
+
+
+class Rectangle {
+    constructor(id, height, width) {
+        this.id = id;
+        this.height = height;
+        this.width = width;
+    }
+
+}
+
+var idCounter = 1;
+var obj0 = new Rectangle(idCounter, 55, 'anything');
+var obj1 = new Rectangle(++idCounter, 55, 105);
+var obj2 = new Rectangle(++idCounter, 55, 106);
+var rectangles = new Array(obj0, obj1, obj2);
+
+
+
+rectangleRouter.param('id', function (req, res, next, id) {
+
+    //var obj = _.find(rectangles,function(obj) { return obj.id == id;});
+    var obj = rectangles.find(x => x.id == id);
+    //var obj = rectangles.find(x => x.id == id);
+
+    if (obj) {
+        //console.log(obj);
+        req.rectangle = obj;
+        next();
+    } else {
+        next(new Error('failed to load rectangle'));
+    }
+
+});
+
+
+rectangleRouter.get('/:id', (req, res, next) => {
+
+    var object = req.rectangle;
+    res.send(object);
+})
+.delete('/:id', (req, res, next) => {
+
+    var object = req.rectangle;
+    //var obj = rectangles.filter(x => x.id == id);
+
+    if (object) {
+        console.log(object);
+        var index = rectangles.indexOf(object);
+        console.log(index);
+        if (index !== -1) {
+            rectangles.splice(index,1);
+            var resp = new Response(null,'Rectangle Removed');
+            res.send(resp);
+        }
+        else{
+            next(new Error('multiply rectangles with the same id found'));    
+        }
+    }
+
+    else {
+        next(new Error('no such rectangle found'));
+
+    }
+    
+});
+
+rectangleRouter.get('/', (req, res, next) => {
+
+    res.send(rectangles);
+}).post('/', (req, res, next) => {
+
+    var rectangle = req.body;
+
+    var newRectangle = new Rectangle(++idCounter, rectangle.height, rectangle.width);
+    rectangles.push(newRectangle);
+    //newRectangle.addon = rectangle.addon;
+    res.send(newRectangle);
+})
+
+.put('/', (req, res, next) => {
+
+    var obj = rectangles.filter(x => x.id == req.body.id);
+
+    if (obj.length == 1) {
+        var index = rectangles.indexOf(obj[0]);
+        if (index !== -1) {
+            rectangles[index] = req.body;
+            res.send(rectangles[index]);
+        }
+        else{
+            next(new Error('multiply rectangles with the same id found'));    
+        }
+    }
+
+
+    else {
+        next(new Error('no such rectangle found'));
+
+    }
+});
+
+module.exports = rectangleRouter;

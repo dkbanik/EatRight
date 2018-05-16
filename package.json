@@ -1,0 +1,30 @@
+{
+  "name": "EatSAP",
+  "version": "1.0.0",
+  "description": "Swiggy like app for internal SAP usage",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "colors": "^1.2.5",
+    "express": "^4.16.3",
+    "lodash": "^4.17.10",
+    "morgan": "^1.9.0",
+    "supertest": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakshamcse/EatSAP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakshamcse/EatSAP/issues"
+  },
+  "homepage": "https://github.com/sakshamcse/EatSAP#readme"
+}
