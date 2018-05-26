@@ -4,6 +4,11 @@ var api = require('./api/api');
 var err = require('./middleware/err');
 var Response = require('./api/classes');
 
+var config = require('../server/config/config')
+
+// db.url is different depending on NODE_ENV
+require('mongoose').connect(config.db.url);
+
 var app = express();
 
 require('./middleware/appMiddleware')(app);

@@ -1,1 +1,13 @@
 Error: failed to load rectangle
+Error: failed to load rectangle
+Error: failed to load rectangle
+CastError: Cast to ObjectId failed for value "2" at path "_id" for model "customer"
+CastError: Cast to ObjectId failed for value "2" at path "_id" for model "customer"
+CastError: Cast to ObjectId failed for value "2" at path "_id" for model "customer"
+MongoError: E11000 duplicate key error collection: eatSAP.customers index: email_1 dup key: { : "s@g.com" }
+CastError: Cast to ObjectId failed for value "1" at path "_id" for model "customer"
+ReferenceError: _ is not defined
+ReferenceError: _ is not defined
+MongoError: E11000 duplicate key error collection: eatSAP.customers index: mobile_1 dup key: { : 7793011887.0 }
+Error: No customer with such id
+Error: No customer with such id
