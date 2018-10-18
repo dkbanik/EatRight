@@ -5,6 +5,16 @@ const errHandler = require('../../middleware/err');
 const Response = require('../classes');
 
 
+exports.nameParams = function(req, res, next, name) {
+
+    Customer.findOne({ 'firstName': name }, 'email mobile employeeNumber', function (err, customer) {
+        if(err) next(err);
+        // Prints "Space Ghost is a talk show host".
+        req.customer = customer;
+        next();
+      });
+}
+
 exports.params = function (req, res, next, id) {
 
     Customer.findById(id)

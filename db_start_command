@@ -1,0 +1,1 @@
+sudo mongod --dbpath=/home/ubuntu/Desktop/working_folder/webapp/EatSAP/db

@@ -7,4 +7,9 @@ var createRoutes = require('../../util/createRoutes');
 
 createRoutes(customerController, customerRouter);
 
+
+customerRouter.param('name', customerController.nameParams);
+customerRouter.route('/findByName/:name')
+.get(customerController.getOne)
+
 module.exports = customerRouter;

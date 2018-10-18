@@ -11,3 +11,5 @@ ReferenceError: _ is not defined
 MongoError: E11000 duplicate key error collection: eatSAP.customers index: mobile_1 dup key: { : 7793011887.0 }
 Error: No customer with such id
 Error: No customer with such id
+Error: No customer with such id
+MongoError: E11000 duplicate key error collection: eatSAP.customers index: email_1 dup key: { : "s@g.com" }
