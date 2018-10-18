@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "32611d0f-43fa-4283-8a86-22d7b8c1b3ca",
+		"name": "foodAPP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "customer",
+			"description": "",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Saksham\",\n    \"lastName\": \"Gupta\",\n    \"email\": \"s@g.com\",\n    \"mobile\": \"7793011887\",\n    \"employeeNumber\" : \"I342047\"\n}\n\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/customer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"customer",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"height\": 55,\n    \"width\": 107\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/customer/5b06ecbcbf11f1c82cd2e6f5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"customer",
+								"5b06ecbcbf11f1c82cd2e6f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Saksham\",\n    \"lastName\": \"Gupta\",\n    \"email\": \"cs.sakshamgupta@gmail.com\",\n    \"mobile\": \"7793011887\",\n    \"employeeNumber\" : \"I342047\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/customer/5b06ecbcbf11f1c82cd2e6f5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"customer",
+								"5b06ecbcbf11f1c82cd2e6f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/customer/5b098ea1e7b986126cdf446d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"customer",
+								"5b098ea1e7b986126cdf446d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETByName",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"height\": 55,\n    \"width\": 107\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/customer/findByName/Saksham",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"customer",
+								"findByName",
+								"Saksham"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "restaurant",
+			"description": "",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dominos\",\n    \"email\": \"dominos@gmai.com\",\n    \"mobile\": \"9876543210\",\n    \"description\" : \"Best Pizza in town\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/restaurant/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"restaurant",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dominos\",\n    \"email\": \"dominos@gmai.com\",\n    \"mobile\": \"9876543210\",\n    \"description\" : \"Best Pizza in town\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/restaurant/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"restaurant",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"dominos@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/restaurant/5b0a8989b590fc4fb5b5e940",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"restaurant",
+								"5b0a8989b590fc4fb5b5e940"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "item_type",
+			"description": "",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Veg Pizza\",\n    \"restaurant\" : \"5b0a8989b590fc4fb5b5e940\",\n    \"description\" : \"Best Pizza in town\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/itemType/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"itemType",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dominos\",\n    \"email\": \"dominos@gmai.com\",\n    \"mobile\": \"9876543210\",\n    \"description\" : \"Best Pizza in town\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/itemType/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"itemType",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
