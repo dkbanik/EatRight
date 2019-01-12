@@ -1,6 +1,6 @@
 module.exports = {
     logging : true,
     db: {
-      url: 'mongodb://localhost/eatSAP'
+      url: 'mongodb://mongo/eatSAP'
     }
 }

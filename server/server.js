@@ -4,10 +4,32 @@ var api = require('./api/api');
 var err = require('./middleware/err');
 var Response = require('./api/classes');
 
-var config = require('../server/config/config')
+var config = require('../server/config/config');
 
 // db.url is different depending on NODE_ENV
-require('mongoose').connect(config.db.url);
+var mongoose = require('mongoose');
+
+
+const options = {
+    autoIndex: false, // Don't build indexes
+    reconnectTries: 30, // Retry up to 30 times
+    reconnectInterval: 500, // Reconnect every 500ms
+    poolSize: 10, // Maintain up to 10 socket connections
+    // If not connected, return errors immediately rather than waiting for reconnect
+    bufferMaxEntries: 0
+  }
+
+const connectWithRetry = () => {
+  console.log('MongoDB connection with retry');
+  mongoose.connect(config.db.url, options).then(()=>{
+    console.log('MongoDB is connected')
+  }).catch(err=>{
+    console.log('MongoDB connection unsuccessful, retry after 5 seconds.')
+    setTimeout(connectWithRetry, 5000)
+  })
+}
+
+connectWithRetry();
 
 var app = express();
 
